@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .  # Указывает, что Dockerfile находится в текущей директории
+      dockerfile: Dockerfile  # Имя вашего Dockerfile
+    container_name: php56.myapp  # Имя контейнера
+    ports:
+      - "80:80"  # Проброс порта 80 контейнера на порт 80 хоста
+    volumes:
+      - ./src:/var/www/html  # Монтирование директории с исходным кодом
+      #- ./apache:/etc/apache2/sites-available  # Монтирование конфигов Apache
+      - ./php:/usr/local/etc/php/conf.d  # Монтирование PHP-конфигов
+    environment:
+      - TZ=Europe/Moscow  # Установка временной зоны
+    restart: unless-stopped  # Автоматический перезапуск контейнера

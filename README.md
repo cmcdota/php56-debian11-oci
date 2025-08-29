@@ -1,9 +1,9 @@
 # BUILD
 ```
-docker build -t debian11 .
+docker build -t php56-oci8 .
 ```
 
 # RUN
 ```
-docker build -t debian11 .
+docker build -t php56-oci8 .
 ```
